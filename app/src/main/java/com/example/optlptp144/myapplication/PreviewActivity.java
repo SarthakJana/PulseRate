@@ -51,6 +51,12 @@ public class PreviewActivity extends AppCompatActivity {
     private ImageReader mImageReader;
     private HandlerThread mBackgroundHandlerThread;
     private Handler mBackgroundHandler;
+    private static final int STATE_PREVIEW = 0;
+    private static final int STATE_WAITING_LOCK = 1;
+    private static final int STATE_WAITING_PRECAPTURE = 2;
+    private static final int STATE_WAITING_NON_PRECAPTURE = 3;
+    private static final int STATE_PICTURE_TAKEN = 4;
+    private int mState = STATE_PREVIEW;
     private boolean mFlashSupported;
     private Size mPreviewSize;
     private CameraDevice mCameraDevice;
