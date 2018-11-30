@@ -574,12 +574,13 @@ public class PreviewActivity extends AppCompatActivity {
         mCaptureImageImageView = findViewById(R.id.iv_capture_image);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     protected void onResume() {
         super.onResume();
         startBackgroundThread();
         if (mTextureView.isAvailable()) {
-
+            openCamera(mTextureView.getWidth(), mTextureView.getHeight());
         } else {
             mTextureView.setSurfaceTextureListener(mSurfaceTextureListener);
         }
